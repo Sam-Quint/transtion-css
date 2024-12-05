@@ -42,7 +42,7 @@ animation-2 {
     height: 12%;
     border-width: 3px 0 0 3px;
     border-style: dashed;
-    border-color: oklch(20% 0.5 313);
+    border-color: oklch(28.24% 0.0814 242.47);
     clip-path: inset(0 0 var(--clip-vertical) var(--clip-horizontal));
     transform-origin: center;
     animation: showLine linear both;
@@ -58,7 +58,7 @@ animation-2 {
       right: auto;
       left: 0px;
       border-width: 3px 3px 0 0;
-      border-color: green;
+      border-color: oklch(28.24% 0.0814 242.47);
       clip-path: inset(0 var(--clip-horizontal) var(--clip-vertical) 0);
     }
     h2{
@@ -174,6 +174,7 @@ p {
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border: 1px solid oklch(38% 0.5 313);
   border-radius: 0.6rem;
+  text-align: center;
 }
 
 .intro {
@@ -226,6 +227,9 @@ h1{
       max-width: none;
       min-width: fit-content;
       margin-inline-end:5px ;
+    }
+    .important{
+      color: oklch(53.82% 0.1579 242.47);
     }
   }
   

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scroll-driven Animations: Cover Card to Fixed Header</title>
+        <!-- Popover Polyfill -->
+        <script src="/shared/third_party/popover/popover.iife.min.js" type="module"></script>
+        <!-- Shared styles and scripts, applied to each page -->
+        <link rel="stylesheet" href="/shared/styles.css">
+        <script src="/shared/scripts.js"></script>
+        <!-- Page specific styles -->
+        <link rel="stylesheet" href="../shared/styles.css">
+        <style>
+            @supports(animation-range: 0vh 90vh) {
+                @keyframes sticky-parallax-header-move-and-size {
+                    from {
+                        background-position: 50% 0;
+                    }
+
+                    to {
+                        background-position: 50% 100%;
+                        background-color: #0b1584;
+                        height: 10vh;
+                        font-size: 2em;
+                    }
+                }
+
+                #sticky-parallax-header {
+                    position: fixed;
+                    top: 0;
+                    animation: sticky-parallax-header-move-and-size linear forwards;
+                    animation-timeline: scroll();
+                    animation-range: 0vh 90vh;
+                }
+
+                body {
+                    padding-top: 100vh;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- metabox -->
+        <div id="metabox">
+            <button id="version-selector" popovertarget="version-selector-popover" data-activeversion="1/2" data-activelang="css">🔀</button>
+            <div id="version-selector-popover" popover anchor="version-selector">
+                <h1>Version selector</h1>
+                <p>This demo has several versions:</p>
+                <ol>
+                    <li data-lang="css" data-selected>
+                        <a href="/demos/cover-to-fixed-header/css/">
+                            CSS <code>scroll-timeline</code>
+                        </a>
+                    </li>
+                    <li data-lang="js">
+                        <a href="/demos/cover-to-fixed-header/waapi/">
+                            JavaScript WAAPI + <code>ScrollTimeline</code>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+            <a class="button" href="/" title="To index">🏠</a>
+            <button id="infobox-toggle" title="Show Information about this demo">ℹ️</button>
+            <dialog id="infobox">
+                <form method="dialog">
+                    <button id="infobox-close" tabindex="0" title="Close dialog">❌</button>
+                </form>
+                <h1>About this demo</h1>
+                <p>This page demonstrates an article page that has a full page cover card that transforms to a fixed header as you scroll down.</p>
+                <h2>The Code</h2>
+                <pre>
+                    <code>
+                        @keyframes sticky-parallax-header-move-and-size {
+	from {
+		background-position: 50% 0;
+		<b>height: 100vh;</b>
+                        <b>font-size: calc(4vw + 1em);</b>
+                        }
+	to {
+		background-position: 50% 100%;
+		background-color: #0b1584;
+		<b>height: 10vh;</b>
+                        <b>font-size: 2em;</b>
+                        }
+}
+
+#sticky-parallax-header {
+	position: fixed;
+	top: 0;
+
+	animation: sticky-parallax-header-move-and-size linear forwards;
+	animation-timeline: scroll();
+	<b>animation-range: 0vh 90vh;</b>
+                        }
+
+body {
+	padding-top: 100vh;
+}
+                    </code>
+                </pre>
+                <h2>Explanation</h2>
+                <p>
+                    The cover starts at a <code>height</code>
+                    of <code>100vh</code>
+                    and shrinks to <code>10vh</code>
+                    as you scroll the root scroller. This is done over a scroll distance of <code>90vh</code>
+                    , put in place using the <code>animation-range</code>
+                    property.
+                </p>
+                <p>
+                    Note that you can’t use <code>position: sticky;</code>
+                    here though, as resizing the cover’s <code>height</code>
+                    would shrink down the entire height of the document, and therefore affecting the available scroll distance. Instead, the cover is positioned using <code>position: fixed;</code>
+                    . To counteract the content jumping up in response, a <code>margin-top</code>
+                    of <code>100vh</code>
+                    is added to the body.
+                </p>
+            </dialog>
+        </div>
+        <div id="sticky-parallax-header">Full-Height Cover Card to Fixed Header</div>
+        <div id="content">
+            <div class="warning">
+                <p>⚠️ Your browser does not support Scroll-driven Animations. Please use Chrome 115 or newer.</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis turpis eu neque tincidunt lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam auctor ultrices tortor et volutpat. Donec eu semper orci, eu fermentum orci. Vivamus aliquam lobortis egestas. Proin vel mauris vitae sem auctor cursus. Aenean sit amet odio at magna pharetra luctus nec eget urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent in leo at tellus ultricies laoreet.</p>
+            <p>Duis nec nisi a eros dictum euismod nec non enim. Donec augue neque, aliquam id finibus a, volutpat ut ligula. Nam feugiat odio elit, ut molestie mi tempus vel. Etiam vitae velit eget massa scelerisque hendrerit cursus vel justo. Sed eget euismod lectus. Morbi tincidunt diam ac diam tempor molestie. Mauris eget lectus leo. Etiam id porta turpis.</p>
+            <p>Aenean ac pellentesque ante. In hac habitasse platea dictumst. Nullam efficitur, dolor ac pharetra iaculis, sem elit maximus ex, et malesuada est ipsum tempor nisi. Phasellus auctor et turpis ultrices fermentum. Mauris ac orci sapien. Quisque auctor, mi eu vestibulum dictum, nisl felis pulvinar dui, non dictum justo tellus a urna. Morbi suscipit et odio a feugiat. Sed dui nisi, iaculis a lacus posuere, dictum laoreet felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p>Nam pulvinar congue condimentum. Pellentesque fringilla ante sed massa tincidunt feugiat. Nulla bibendum est eros, non malesuada dolor vehicula in. Morbi eu cursus arcu. Phasellus ultricies ornare lorem, non interdum orci condimentum eu. Donec condimentum condimentum ligula ut placerat. Vestibulum id neque condimentum, molestie nunc vel, suscipit turpis. Quisque orci velit, mattis et nibh non, tempor finibus erat. Nullam tristique, tortor non commodo cursus, magna turpis rhoncus leo, quis porta quam ante sed orci. Nunc vehicula imperdiet leo in vulputate. Quisque quis dolor orci.</p>
+            <p>Curabitur ultrices fringilla libero sit amet porta. Nulla rhoncus venenatis euismod. Praesent non interdum sem. Nunc in nibh tincidunt, faucibus sem at, finibus turpis. Nullam vel odio blandit, tincidunt urna et, luctus lectus. Vivamus porta sem vitae turpis interdum porta eu id ligula. Fusce non nisi fringilla, malesuada metus ut, imperdiet ligula. Nunc quis lorem nibh. Duis pharetra magna vestibulum metus convallis, id mollis ligula vulputate. Sed purus est, consectetur non suscipit sit amet, hendrerit at dolor. Maecenas feugiat, quam vel ullamcorper feugiat, sapien ipsum viverra justo, id cursus metus nisi quis enim.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis turpis eu neque tincidunt lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam auctor ultrices tortor et volutpat. Donec eu semper orci, eu fermentum orci. Vivamus aliquam lobortis egestas. Proin vel mauris vitae sem auctor cursus. Aenean sit amet odio at magna pharetra luctus nec eget urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent in leo at tellus ultricies laoreet.</p>
+            <p>Duis nec nisi a eros dictum euismod nec non enim. Donec augue neque, aliquam id finibus a, volutpat ut ligula. Nam feugiat odio elit, ut molestie mi tempus vel. Etiam vitae velit eget massa scelerisque hendrerit cursus vel justo. Sed eget euismod lectus. Morbi tincidunt diam ac diam tempor molestie. Mauris eget lectus leo. Etiam id porta turpis.</p>
+            <p>Aenean ac pellentesque ante. In hac habitasse platea dictumst. Nullam efficitur, dolor ac pharetra iaculis, sem elit maximus ex, et malesuada est ipsum tempor nisi. Phasellus auctor et turpis ultrices fermentum. Mauris ac orci sapien. Quisque auctor, mi eu vestibulum dictum, nisl felis pulvinar dui, non dictum justo tellus a urna. Morbi suscipit et odio a feugiat. Sed dui nisi, iaculis a lacus posuere, dictum laoreet felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p>Nam pulvinar congue condimentum. Pellentesque fringilla ante sed massa tincidunt feugiat. Nulla bibendum est eros, non malesuada dolor vehicula in. Morbi eu cursus arcu. Phasellus ultricies ornare lorem, non interdum orci condimentum eu. Donec condimentum condimentum ligula ut placerat. Vestibulum id neque condimentum, molestie nunc vel, suscipit turpis. Quisque orci velit, mattis et nibh non, tempor finibus erat. Nullam tristique, tortor non commodo cursus, magna turpis rhoncus leo, quis porta quam ante sed orci. Nunc vehicula imperdiet leo in vulputate. Quisque quis dolor orci.</p>
+            <p>Curabitur ultrices fringilla libero sit amet porta. Nulla rhoncus venenatis euismod. Praesent non interdum sem. Nunc in nibh tincidunt, faucibus sem at, finibus turpis. Nullam vel odio blandit, tincidunt urna et, luctus lectus. Vivamus porta sem vitae turpis interdum porta eu id ligula. Fusce non nisi fringilla, malesuada metus ut, imperdiet ligula. Nunc quis lorem nibh. Duis pharetra magna vestibulum metus convallis, id mollis ligula vulputate. Sed purus est, consectetur non suscipit sit amet, hendrerit at dolor. Maecenas feugiat, quam vel ullamcorper feugiat, sapien ipsum viverra justo, id cursus metus nisi quis enim.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis turpis eu neque tincidunt lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam auctor ultrices tortor et volutpat. Donec eu semper orci, eu fermentum orci. Vivamus aliquam lobortis egestas. Proin vel mauris vitae sem auctor cursus. Aenean sit amet odio at magna pharetra luctus nec eget urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent in leo at tellus ultricies laoreet.</p>
+            <p>Duis nec nisi a eros dictum euismod nec non enim. Donec augue neque, aliquam id finibus a, volutpat ut ligula. Nam feugiat odio elit, ut molestie mi tempus vel. Etiam vitae velit eget massa scelerisque hendrerit cursus vel justo. Sed eget euismod lectus. Morbi tincidunt diam ac diam tempor molestie. Mauris eget lectus leo. Etiam id porta turpis.</p>
+            <p>Aenean ac pellentesque ante. In hac habitasse platea dictumst. Nullam efficitur, dolor ac pharetra iaculis, sem elit maximus ex, et malesuada est ipsum tempor nisi. Phasellus auctor et turpis ultrices fermentum. Mauris ac orci sapien. Quisque auctor, mi eu vestibulum dictum, nisl felis pulvinar dui, non dictum justo tellus a urna. Morbi suscipit et odio a feugiat. Sed dui nisi, iaculis a lacus posuere, dictum laoreet felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p>Nam pulvinar congue condimentum. Pellentesque fringilla ante sed massa tincidunt feugiat. Nulla bibendum est eros, non malesuada dolor vehicula in. Morbi eu cursus arcu. Phasellus ultricies ornare lorem, non interdum orci condimentum eu. Donec condimentum condimentum ligula ut placerat. Vestibulum id neque condimentum, molestie nunc vel, suscipit turpis. Quisque orci velit, mattis et nibh non, tempor finibus erat. Nullam tristique, tortor non commodo cursus, magna turpis rhoncus leo, quis porta quam ante sed orci. Nunc vehicula imperdiet leo in vulputate. Quisque quis dolor orci.</p>
+            <p>Curabitur ultrices fringilla libero sit amet porta. Nulla rhoncus venenatis euismod. Praesent non interdum sem. Nunc in nibh tincidunt, faucibus sem at, finibus turpis. Nullam vel odio blandit, tincidunt urna et, luctus lectus. Vivamus porta sem vitae turpis interdum porta eu id ligula. Fusce non nisi fringilla, malesuada metus ut, imperdiet ligula. Nunc quis lorem nibh. Duis pharetra magna vestibulum metus convallis, id mollis ligula vulputate. Sed purus est, consectetur non suscipit sit amet, hendrerit at dolor. Maecenas feugiat, quam vel ullamcorper feugiat, sapien ipsum viverra justo, id cursus metus nisi quis enim.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis turpis eu neque tincidunt lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam auctor ultrices tortor et volutpat. Donec eu semper orci, eu fermentum orci. Vivamus aliquam lobortis egestas. Proin vel mauris vitae sem auctor cursus. Aenean sit amet odio at magna pharetra luctus nec eget urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent in leo at tellus ultricies laoreet.</p>
+            <p>Duis nec nisi a eros dictum euismod nec non enim. Donec augue neque, aliquam id finibus a, volutpat ut ligula. Nam feugiat odio elit, ut molestie mi tempus vel. Etiam vitae velit eget massa scelerisque hendrerit cursus vel justo. Sed eget euismod lectus. Morbi tincidunt diam ac diam tempor molestie. Mauris eget lectus leo. Etiam id porta turpis.</p>
+            <p>Aenean ac pellentesque ante. In hac habitasse platea dictumst. Nullam efficitur, dolor ac pharetra iaculis, sem elit maximus ex, et malesuada est ipsum tempor nisi. Phasellus auctor et turpis ultrices fermentum. Mauris ac orci sapien. Quisque auctor, mi eu vestibulum dictum, nisl felis pulvinar dui, non dictum justo tellus a urna. Morbi suscipit et odio a feugiat. Sed dui nisi, iaculis a lacus posuere, dictum laoreet felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p>Nam pulvinar congue condimentum. Pellentesque fringilla ante sed massa tincidunt feugiat. Nulla bibendum est eros, non malesuada dolor vehicula in. Morbi eu cursus arcu. Phasellus ultricies ornare lorem, non interdum orci condimentum eu. Donec condimentum condimentum ligula ut placerat. Vestibulum id neque condimentum, molestie nunc vel, suscipit turpis. Quisque orci velit, mattis et nibh non, tempor finibus erat. Nullam tristique, tortor non commodo cursus, magna turpis rhoncus leo, quis porta quam ante sed orci. Nunc vehicula imperdiet leo in vulputate. Quisque quis dolor orci.</p>
+            <p>Curabitur ultrices fringilla libero sit amet porta. Nulla rhoncus venenatis euismod. Praesent non interdum sem. Nunc in nibh tincidunt, faucibus sem at, finibus turpis. Nullam vel odio blandit, tincidunt urna et, luctus lectus. Vivamus porta sem vitae turpis interdum porta eu id ligula. Fusce non nisi fringilla, malesuada metus ut, imperdiet ligula. Nunc quis lorem nibh. Duis pharetra magna vestibulum metus convallis, id mollis ligula vulputate. Sed purus est, consectetur non suscipit sit amet, hendrerit at dolor. Maecenas feugiat, quam vel ullamcorper feugiat, sapien ipsum viverra justo, id cursus metus nisi quis enim.</p>
+            <p>
+                Photo by <a href="https://unsplash.com/@rjarboe">Rachel Jarboe</a>
+                on <a href="https://unsplash.com/photos/landscape-photography-of-white-iceburg-tZpmdFfU5gQ">Unsplash</a>
+            </p>
+        </div>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8ed4e07db922d13b","version":"2024.10.5","r":1,"token":"4f175b1ac3204b9ca216125bb4bd6018","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+    </body>
+</html>

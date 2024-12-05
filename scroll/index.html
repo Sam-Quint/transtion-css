@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontal Scroll with Animations</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="sticky-parallax-header">
+        Scroll driven animation 
+      </div>
+    <div class="bumper">
+      <p class="compatibility">
+        Compatibilité : <span id="compatibility"></span>
+      </p>
+
+      <h2>Définition</h2>
+      <p>
+        Une "Scroll driven animation" (animation pilotée par le défilement) est
+        une technique qui permet de synchroniser des animations ou des
+        changements visuels avec l'action de défilement de la page (scrolling).
+        En d'autres termes, les éléments de la page sont animés en fonction de
+        la position du défilement de l'utilisateur.
+      </p>
+    </div>
+    <section class="container">
+      <h2>Exemple de Scroll driven animation</h2>
+      <div id="progress"></div>
+      <div class="space-holder">
+        <div class="sticky">
+          <div class="horizontal">
+            <section role="feed" class="cards">
+              <article class="sample-card">Animation Scroll horizontal</article>
+              <article class="sample-card">
+                Cette carte illustre une animation dynamique qui modifie deux
+                propriétés CSS en fonction du défilement vertical de la page
+              </article>
+              <article class="sample-card">
+                Changement d'échelle (Zoom) : Lorsque l'utilisateur fait défiler
+                la page, chaque carte change de taille progressivement.
+                L'échelle augmente ou diminue en fonction de la position de la
+                carte par rapport au défilement. Ce comportement est géré par le
+                code suivant :
+              </article>
+              <article class="sample-card">
+                <pre><code>
+                    const scaleValue = Math.max(1, 1.5 - cardOffset / 1000);
+                    card.style.transform = `scale(${scaleValue})`;
+              </code></pre>
+              </article>
+              <article class="sample-card">
+                Changement de couleur de fond : La couleur de fond de la carte
+                change aussi en fonction du défilement. La couleur passe d'une
+                teinte plus sombre à une teinte plus claire au fur et à mesure
+                que l'utilisateur descend. Ce comportement est géré par le code
+                suivant :
+              </article>
+              <article class="sample-card">
+                <pre><code>
+                    const colorValue = Math.min(255, 50 + cardOffset / 5);
+                    card.style.backgroundColor = `rgb(${colorValue}, 50, 100)`;                    
+                </code></pre>
+              </article>
+              <article class="sample-card">Carte 4 : Fin du défilement</article>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bumper">
+      <h2>Comment ça fonctionne ?</h2>
+      <p>
+        Lorsque l'utilisateur fait défiler la page, l'animation se déclenche ou
+        se met à jour en fonction de la position de défilement actuelle. Cela
+        crée un effet visuel interactif où l'animation réagit aux actions de
+        l'utilisateur, augmentant l'immersion et l'interactivité.
+      </p>
+    </div>
+    <div class="bumper">
+      <h2>Conclusion</h2>
+      <p>
+        Les "scroll driven animations" apportent de la fluidité et de
+        l'interactivité à l'expérience utilisateur. Elles permettent de relier
+        directement le comportement de défilement à des animations visuelles,
+        créant ainsi une interaction plus riche et plus immersive. Ce type
+        d'animation est populaire dans les conceptions modernes de sites web, en
+        particulier pour les sites de présentation, les portfolios et les pages
+        d'accueil interactives.
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

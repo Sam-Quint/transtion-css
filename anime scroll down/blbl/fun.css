@@ -1,0 +1,95 @@
+body{
+    width:100vw;
+    height:100vh;
+    display: flex;
+     justify-content: space-around;
+     align-items: center;
+    background-color:pink;
+  }
+  header,footer{
+    background-color:blue;
+    width:100px;
+    height:100px;
+  }
+  header{
+    anchor-name: --header;
+  }
+  footer{
+    anchor-name: --footer;
+  }
+  main{
+    width:300px;
+    height:300px;
+    anchor-name: --cube;
+  }
+  
+  .mini-cube{
+    width:25px;
+    height:25px;
+    background-color:green;
+    position:absolute;
+    position-anchor: --cube;
+    position-area: center center;
+  }
+  
+  span{
+    display:block;
+    width:50px;
+    height:50px;
+    background-color:red;
+    position:absolute;
+    position-anchor: --cube;
+  }
+  
+  .block-1{
+    position-area: top left;
+  }
+  .block-2{
+    position-area: top center;
+  }
+  .block-3{
+    position-area: top right;
+  }
+  .block-4{
+    position-area: center left;
+  }
+  .block-5{
+    position-area: center center;
+  }
+  .block-6{
+    position-area: center right;
+  }
+  .block-7{
+    position-area: bottom left;
+  }
+  .block-8{
+    position-area: bottom center;
+  }
+  .block-9{
+    position-area: bottom right;
+  }
+  
+  .tf,.bf,.lf,.rf{
+    position-anchor: --footer;
+  }
+  .th,.bh,.lh,.rh{
+    position-anchor: --header;
+  }
+  
+  .top{
+    position-area: top center;
+  }
+  .left{
+    position-area: center left;
+  }
+  .bottom{
+    position-area: bottom center;
+  }
+  .right{
+    position-area: center right;
+  }
+  button{
+    position:absolute;
+    width:60px;
+    height:40px;
+  }

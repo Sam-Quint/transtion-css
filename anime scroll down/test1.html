@@ -6,19 +6,50 @@
     <link rel="stylesheet" href="abouba.css">
     <title>test1</title>
 </head>
-<body>
-    <div >
+  <body>
+      <div>
         <h1>Un autre type d'animation</h1>
-        <p>avec des after</p>
+        <p>avec des keyframes et animation-timeline</p>
       </div>
       <div class="animation-2">
+        <article class="A2-stop">
+          <div class="A2-text">
+            <header>
+              <h2>Déclaration CSS</h2>
+              <span class="indice">Déclarer des variables</span>
+            </header>
+            <p>Tout d'abord on construit des déclarations</p>
+            <p>Cela vas nous permettre d'avoir des repères stables </p>
+            <code class="A2-code">
+              <div class="type-code"> 
+                <h5>CSS</h5>
+                <p class="copie">copier le code</p>
+              </div>
+              <div class="exemple-code">
+                <h6>@property --clip-vertical {</h6>
+                  <p><color>syntax</color>"&lt;percentage&gt;"; </p>
+                  <p><color>initial-value</color>95%;</p>
+                  <p><color>inherits</color>false;</p>
+                }
+                
+                <h6>@property --clip-horizontal {</h6>
+                  <p><color>syntax</color>" &lt;percentage&gt; ";</p>
+                  <p><color>initial-value</color>100%;</p>
+                  <p><color>inherits</color>false;</p>
+                }
+              </div>
+            </code>
+            
+          </div>
+      </article>
         <article class="A2-stop">
             <div class="A2-text">
               <header>
                 <h2>Le Texte</h2>
                 <span class="indice">une div de texte</span>
               </header>
-              <p>On commence par construire une div contenant notre texte</p>
+              <p>Ensuite on construit une div contenant notre texte</p>
+              <p></p>
               <code class="A2-code">
                   <div class="type-code"> 
                       <h5>CSS</h5>
@@ -38,7 +69,7 @@
                   </div>
               </code>
             </div>
-          </article>
+        </article>
         <article class="A2-stop">
           <div class="A2-text">
             <header>
@@ -46,6 +77,7 @@
               <span class="indice">::after</span>
             </header>
             <p>Le très qui apparait est un after</p>
+            <p>On le construit pour créer les très pointillés qui apparaisse durant le scroll</p>
             <code class="A2-code">
                 <div class="type-code"> 
                     <h5>CSS</h5>
@@ -75,104 +107,45 @@
         <article class="A2-stop">
           <div class="A2-text">
             <header>
-              <h2>Hard disk drive</h2>
-              <time>1956</time> - IBM
+              <h2>Les keyframes</h2>
+              <span class="indice">@keyframes</span>
             </header>
-            <p>A stack of rotating platters coated with a magnetic material.</p>
-            <img src="https://assets.codepen.io/159218/hard-disk-drive.jpg" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>Floppy disk</h2>
-              <time>1967</time> - Alan Shugart
-            </header>
-            <p>A small, flexible disk coated with a magnetic material, used for storing data.</p>
-            <img src="https://assets.codepen.io/159218/floppy-disk.jpg" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>Compact cassette</h2>
-              <time>1971</time> - Philips
-            </header>
-            <p>A small, magnetic tape cassette used for storing data.</p>
-            <img src="https://assets.codepen.io/159218/compact-cassette.jpg" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>Zip drive</h2>
-              <time>1980</time> - Iomega
-            </header>
-            <p>A removable disk drive with a capacity of up to 100 MB.</p>
-            <img src="https://assets.codepen.io/159218/zip-drive.jpg" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>CD-ROM</h2>
-              <time>1984</time> - James Russell
-            </header>
-            <p>A compact disc that can store up to 700 MB of data.</p>
-            <img src="https://assets.codepen.io/159218/cd-rom.png" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>DVD-ROM</h2>
-              <time>1994</time> - Kenji Kashiwaya
-            </header>
-            <p>A digital versatile disc that can store up to 4.7 GB of data.</p>
-            <img src="https://assets.codepen.io/159218/dvd-rom.png" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>Blu-ray Disc</h2>
-              <time>1995</time> - Sony and Philips
-            </header>
-            <p>A high-definition optical disc that can store up to 25 GB of data.</p>
-            <img src="https://assets.codepen.io/159218/blu-ray.png" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>Solid-state drive</h2>
-              <time>2000</time> - SanDisk
-            </header>
-            <p>A type of storage device that uses flash memory to store data.</p>
-            <img src="https://assets.codepen.io/159218/ssd.jpg" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>USB flash drive</h2>
-              <time>2003</time> - IBM
-            </header>
-            <p> A small, portable storage device that uses flash memory to store data.</p>
-            <img src="https://assets.codepen.io/159218/usb-flash-drive.jpg" alt="" />
-          </div>
-        </article>
-        <article class="A2-stop">
-          <div class="A2-text">
-            <header>
-              <h2>Cloud storage</h2>
-              <time>2007</time> - Amazon Web Services
-            </header>
-            <p>A service that allows users to store data on remote servers.</p>
-            <img src="https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODk2MDA3NDJ8&ixlib=rb-4.0.3&q=85" alt="" />
+            <p>Pour finir on fait les animations avec des keyframes</p>
+            <code class="A2-code">
+                <div class="type-code"> 
+                    <h5>CSS</h5>
+                    <p class="copie">copier le code</p>
+                </div>
+                <div class="exemple-code">
+                    
+                    <h6>@keyframes showLine {</h6>
+                      <p>0% {</p>
+                        <p><color>--clip-horizontal</color>800%;</p>
+                        <p><color>--clip-vertical</color>75%;</p>
+                        <p> }</p>
+                      <p>60% {</p>
+                        <p><color>--clip-horizontal</color>0%;</p>
+                        <p><color>--clip-vertical</color>95%;</p>
+                        <p>}</p>
+                        <p>100% {</p>
+                          <p><color>--clip-horizontal</color>0%;</p>
+                          <p><color>--clip-vertical</color>0%;</p>
+                      </p>}</p>
+                    }
+                    <h6>@keyframes slideIn {</h6>
+                      <p>0% {</p>
+                      <p><color>translate</color>0 3%;</p>
+                      <p><color>--clip-vertical</color>100%;</p>
+                      <p>}</p>
+                      <p>100% {</p>
+                      <p><color>--clip-vertical</color>0%;</p>
+                      <p>}</p>
+                    }
+                </div>
+            </code>
           </div>
         </article>
       </main>
       <script src="anime-2.js"></script>
-</body>
+  </body>
 </html>

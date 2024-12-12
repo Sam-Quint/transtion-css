@@ -1,0 +1,358 @@
+/* =========*/
+/* ANIMATION 2 */ 
+/* =========*/
+@property --clip-vertical {
+  syntax: "<percentage>";
+  initial-value: 95%;
+  inherits: false;
+}
+
+@property --clip-horizontal {
+  syntax: "<percentage>";
+  initial-value: 100%;
+  inherits: false;
+}
+
+@property --intro-radial {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+
+animation-2 {
+  --timeline-width: 100%;
+
+  position: relative;
+  padding-block-end: 300px;;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+html{
+  width: 100vw;
+}
+anim2-article {
+  --clip-horizontal: 100%;
+  --clip-vertical: 93%;
+  position: relative;
+  min-height: 70vh;
+  padding-top: 15vh;
+  display: flex;
+  width: 100%;
+  padding-inline: 25px;
+  &::after {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    width: 50%;
+    height: 12%;
+    border-width: 3px 0 0 3px;
+    border-style: dashed;
+    border-color: oklch(28.24% 0.0814 242.47);
+    clip-path: inset(0 0 var(--clip-vertical) var(--clip-horizontal));
+    transform-origin: center;
+    animation: showLine linear both;
+    animation-timeline: view(block);
+    animation-range: cover 0% contain 50%;
+    content: "";
+  }
+
+  &:nth-child(even) {
+    justify-content: flex-end;
+    text-align: end;
+    &::after {
+      right: auto;
+      left: 0px;
+      border-width: 3px 3px 0 0;
+      border-color: oklch(28.24% 0.0814 242.47);
+      clip-path: inset(0 var(--clip-horizontal) var(--clip-vertical) 0);
+    }
+    h2{
+      text-align: center;
+    }
+    .indice{
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.A2-text {
+  animation: slideIn linear both;
+  animation-timeline: view(block);
+  animation-range: cover 20% contain 30%;
+  clip-path: inset(0 0 var(--clip-vertical) 0);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 1.1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border: 1px solid oklch(38% 0.5 313);
+  border-radius: 0.6rem;
+  text-align: center;
+}
+
+/* keyframes */
+@keyframes popIn {
+  0% {
+    scale: 0;
+  }
+  60% {
+    scale: 1.3;
+  }
+}
+
+@keyframes moveGradient {
+  to {
+    --intro-radial: 100%;
+  }
+}
+
+@keyframes showLine {
+  0% {
+    --clip-horizontal: 800%;
+    --clip-vertical: 75%;
+  }
+  60% {
+    --clip-horizontal: 0%;
+    --clip-vertical: 95%;
+  }
+  100% {
+    --clip-horizontal: 0%;
+    --clip-vertical: 0%;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    translate: 0 3%;
+    --clip-vertical: 100%;
+  }
+  100% {
+    --clip-vertical: 0%;
+  }
+}
+/* Default styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  width:100vw;
+  overflow-x: hidden;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-image: radial-gradient(
+      150vw circle at var(--intro-radial) var(--intro-radial) in oklab,
+      oklch(80% 0.23 68) 0%,
+      oklch(35% 0.5 313) 100%
+    );
+  background-size: 100%, 500px;
+  background-attachment: fixed;
+  background-color: white;
+
+  animation: moveGradient linear both;
+  animation-timeline: view(block);
+  animation-range: contain 0% cover 100%;
+}
+
+h2 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+header {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+p {
+  margin-block: 1.2rem 0;
+  text-align: center;
+}
+
+
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-inline: 30px;
+  height: 50vh;
+  color: white;
+}
+
+img {
+  width: 200px;
+  margin-block-start: 1.05rem;
+  border: 1px solid #eee;
+  background: white;
+}
+h1{
+  text-align: center;
+}
+
+.A2-code{
+  background-color: #282424;
+  border-radius: 25px;
+  display: block;
+  width:100%;
+  min-height: 100px;
+  text-align: start;
+
+  .exemple-code{
+    padding: 5%;
+
+    h6{
+      font-size: 15px;
+      margin: 0;
+      color: #e64848;
+    }
+    p{
+      text-align: start;
+      font-size: 15px;
+      display: flex;
+      color:aqua;
+      margin-top:5px;
+      padding-inline-start: 20px ;
+    }
+    color{
+      color:#ffd078;
+      width: fit-content;
+      max-width: none;
+      min-width: fit-content;
+      margin-inline-end:5px ;
+    }
+    .important{
+      color: oklch(53.82% 0.1579 242.47);
+    }
+    .newP, .newC{
+      font-weight: 800;
+    }
+    
+  }
+  
+  .type-code{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    height: 50px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: #302b2b;
+
+    p,h5{
+      margin: 0;
+      text-decoration: none;
+    }
+    h5{
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+
+
+/* =========*/
+/* ANIMATION 4 */ 
+/* =========*/
+
+anime4{
+  width: 100%;
+  min-height: 100vh !important;
+  display: block;
+  position: relative;
+
+  section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    div{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1{
+        display: flex;
+        flex-direction: column;
+        animation: fade-out both linear ;
+        animation-timeline: view(block);
+        animation-range: cover 35% contain 50%;
+
+
+        span:first-child{
+          animation: Zoom30 linear both;
+          animation-timeline: view(block);
+          animation-range: cover 00% contain 60%;
+        }
+
+        span:nth-child(2){
+          animation: Zoom70 linear both;
+          animation-timeline: view(block);
+          animation-range: cover 00% contain 60%;
+        }
+      }
+
+      h2{
+        animation: fade-in both linear, fade-out both linear;
+        animation-timeline: view(block);
+        animation-range: entry 10% entry 15%, exit 10% exit 15%;
+      }
+    }
+
+    video{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    video, p, footer{
+      display: none;
+    }
+  }
+  
+}
+
+@keyframes Zoom70 {
+  0% {
+    font-size:0px;
+  }
+  100% {
+    font-size:100px;
+  }
+}
+@keyframes Zoom30 {
+  0% {
+    font-size:0px;
+  }
+  100% {
+    font-size:30px;
+  }
+}
+@keyframes fade-in {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fade-out{
+  to {
+    opacity: 0;
+  }
+}

@@ -147,6 +147,7 @@ body {
   overflow-x: hidden;
   font-size: 1rem;
   line-height: 1.6;
+  margin: 0 !important;
   background-image: radial-gradient(
       150vw circle at var(--intro-radial) var(--intro-radial) in oklab,
       oklch(80% 0.23 68) 0%,
@@ -199,7 +200,7 @@ h1{
   text-align: center;
 }
 
-.A2-code{
+code{
   background-color: #282424;
   border-radius: 25px;
   display: block;
@@ -249,10 +250,12 @@ h1{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     background-color: #302b2b;
+    color: white;
 
     p,h5{
       margin: 0;
       text-decoration: none;
+      font-size: 15px;
     }
     h5{
       font-size: 20px;
@@ -268,91 +271,98 @@ h1{
 /* ANIMATION 4 */ 
 /* =========*/
 
-anime4{
+anim3-app{
   width: 100%;
   min-height: 100vh !important;
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   position: relative;
 
-  section{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    
-    div{
-      width: 100%;
-      height: 100%;
+  anim3-article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:95%;
+
+    h1{
       display: flex;
-      justify-content: center;
-      align-items: center;
-
-      h1{
-        display: flex;
-        flex-direction: column;
-        animation: fade-out both linear ;
-        animation-timeline: view(block);
-        animation-range: cover 35% contain 50%;
-
-
-        span:first-child{
-          animation: Zoom30 linear both;
-          animation-timeline: view(block);
-          animation-range: cover 00% contain 60%;
-        }
-
-        span:nth-child(2){
-          animation: Zoom70 linear both;
-          animation-timeline: view(block);
-          animation-range: cover 00% contain 60%;
-        }
-      }
-
-      h2{
-        animation: fade-in both linear, fade-out both linear;
-        animation-timeline: view(block);
-        animation-range: entry 10% entry 15%, exit 10% exit 15%;
-      }
-    }
-
-    video{
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    video, p, footer{
-      display: none;
+      flex-direction: column;
+      width: 95%;
+      max-width: 95%;
+      margin: 200px 0 !important;
     }
   }
-  
+  anim3-article:first-child{
+    h1{
+      animation: Zoom70-Fade-Out linear both;
+      animation-timeline: view(block);
+      animation-range: cover 00% contain 100%;
+    }
+  }
+
+  anim3-article:nth-child(2){
+    h1{
+      animation: fade-in-out backwards linear;
+      animation-timeline: view(block);
+      animation-range: cover 00% contain 120%;
+    }
+  }
+  anim3-article:nth-child(3){
+    margin-bottom: 200px;
+    h1{
+      animation: slide-in-out both linear;
+      animation-timeline: view(block);
+      animation-range: cover 00% contain 100%;
+    }
+  }
+} 
+.code-cont{
+  width: 100%;
+  animation: none;
 }
 
-@keyframes Zoom70 {
+@keyframes Zoom70-Fade-Out {
   0% {
     font-size:0px;
   }
+  50%{
+    font-size:35px;
+    opacity: 1;
+  }
+  80%{
+    opacity: 1;
+  }
   100% {
-    font-size:100px;
+    opacity: 0;
   }
 }
-@keyframes Zoom30 {
-  0% {
-    font-size:0px;
-  }
-  100% {
-    font-size:30px;
-  }
-}
-@keyframes fade-in {
+
+@keyframes fade-in-out {
   0%{
     opacity: 0;
   }
-  100%{
+  40%{
     opacity: 1;
   }
-}
-@keyframes fade-out{
-  to {
+  60%{
+    opacity: 1;
+  }
+  100%{
     opacity: 0;
+  }
+}
+@keyframes slide-in-out{
+  0%{
+    transform: translateX(-400px);
+  }
+  45%{
+    transform: translateX(0px);
+  }
+  70%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(400px);
   }
 }

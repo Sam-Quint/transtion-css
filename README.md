@@ -1,14 +1,9 @@
 # transtion-css
 
+Sur ce site, nous montrons différentes façons d'utiliser les "Scroll-driven animations".
 
+Nous avons utilisé du CSS et de l'HTML pour réaliser ces animations.
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (CSS.supports("animation-timeline", "scroll()")) {
-        console.log("Le navigateur supporte l'API Fetch !");
-        // Fonctionnalité supportée
-    } else {
-        console.log("Le navigateur ne supporte pas l'API Fetch.");
-        // Fournir un fallback ou un message
-        alert("Votre navigateur est obsolète. Certaines fonctionnalités pourraient ne pas fonctionner correctement.");
-    }
-});
+Les fichiers JS servent à la création et à l'utilisation de Web Components.
+
+Nous avons d'autres branches dans notre GitHub, une par personne, et c'est ici que la plupart des échanges ont eu lieu, le main étant réservé à la version finale.

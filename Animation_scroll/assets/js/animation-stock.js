@@ -53,19 +53,10 @@ export const bumperContent = [
   {
     title: "Conclusion",
     content: `
-      Les "scroll driven animations" apportent fluidité et interactivité à
-      l'expérience utilisateur. Elles relient directement le défilement aux
-      animations, rendant l'expérience immersive.
+      Cette animation est un bon exemple de l’utilisation des scroll-driven animations pour capter l’attention des utilisateurs tout en rendant l’expérience plus engageante. C’est une solution moderne, simple à mettre en œuvre, et idéale pour des sites web interactifs.
     `,
   },
-  // {
-  //   title: "Définition",
-  //   content: `
-  //     Une "Scroll driven animation" (animation pilotée par le défilement) est
-  //     une technique qui permet de synchroniser des animations ou des changements
-  //     visuels avec l'action de défilement de la page.
-  //   `
-  // }
+
 ];
 export const contentAnimation2 = [
   {
@@ -103,9 +94,9 @@ export const contentAnimation2 = [
   },
   {
     id: "3",
-    h2: "Le très",
+    h2: "Le trait",
     span: "::after",
-    p: "Le très qui apparait est un after, On le construit pour créer les très pointillés qui apparaisse durant le scroll",
+    p: "Le trait qui apparait est un after, On le construit pour créer les traits pointillés qui apparaisse durant le scroll",
     code: `<h6>.stop::after {</h6>
                         <p><color>id:</color> absolute;</p>
                         <p><color>top:</color> 20px;</p>
